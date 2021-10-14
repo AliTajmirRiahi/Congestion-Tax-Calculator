@@ -13,11 +13,7 @@ namespace Arta.Persistence.EF.Configurations
         {
             builder.HasKey(p => p.Id);
 
-            builder.Ignore(p => p.CreatedAt);
-            builder.Ignore(p => p.CreatedDateTimeAt);
-            builder.Ignore(p => p.ModifiedAt);
-            builder.Ignore(p => p.DeletedAt);
-            builder.Ignore(p => p.IsDeleted);
+            builder.HasOne(p => p.ApplicationUser).WithOne(p => p.User).HasForeignKey<User>(p => p.MembershipId);
         }
     }
 }

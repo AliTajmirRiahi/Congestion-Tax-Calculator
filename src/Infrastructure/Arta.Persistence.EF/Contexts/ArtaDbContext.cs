@@ -40,7 +40,7 @@ namespace Arta.Persistence.EF.Contexts
             {
                 if (!(entry.Entity is TrackEntity entity)) continue;
 
-                if (entry.State == EntityState.Added) entity.CreatedAt = now.ToString("yyyy/MM/dd HH:mm:ss");
+                if (entry.State == EntityState.Added) entity.CreatedAt = now;
 
                 entity.ModifiedAt = now;
             }

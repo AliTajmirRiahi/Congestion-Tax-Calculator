@@ -41,8 +41,7 @@ namespace Anshan.Framework.EF
 
                 if (entry.State == EntityState.Added)
                 {
-                    entity.CreatedAt = now.ToString("yyyy/MM/dd HH:mm:ss");
-                    entity.CreatedDateTimeAt = now;
+                    entity.CreatedAt = now;
                 }
                   
 

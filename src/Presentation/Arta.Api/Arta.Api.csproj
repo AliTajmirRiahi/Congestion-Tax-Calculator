@@ -31,10 +31,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Controllers\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\..\..\Framework\Framework.Pagination\Framework.Pagination.csproj" />
 		<ProjectReference Include="..\..\Application\Arta.Application.Contracts\Arta.Application.Contracts.csproj" />
 		<ProjectReference Include="..\..\Application\Arta.Application\Arta.Application.csproj" />

@@ -16,6 +16,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Arta.Api.Config.Identity;
 using Arta.Api.Config.Swagger;
+using Arta.Api.Middlewares;
+using Arta.Persistence.EF.Contexts;
+using Arta.Api.Config.Localization;
+using Microsoft.Extensions.Options;
 
 namespace Arta.Api
 {
@@ -33,6 +37,8 @@ namespace Arta.Api
         {
             services.AddControllers().AddNewtonsoftJson();
             //services.AddCustomControllers();
+
+            services.AddCustomLocalization();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -58,6 +64,8 @@ namespace Arta.Api
 
             services.AddCustomSwagger();
 
+            services.AddTransient<CultureProviderMiddleware>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "MyPolicy",
@@ -75,15 +83,25 @@ namespace Arta.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Arta.Api v1"));
+            else
+                app.UseErrorWrappingMiddleware();
+
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<ArtaDbContext>();
+                context.Database.EnsureCreated();
             }
+
+            app.UseCustomSwagger();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+
+            app.UseMiddleware<CultureProviderMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

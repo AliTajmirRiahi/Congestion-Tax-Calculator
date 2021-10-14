@@ -23,7 +23,7 @@ namespace Anshan.Framework.EF
             var audit = new Audit
             {
                 AggregateRootName = TableName,
-                CreatedAt = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                CreatedAt = DateTime.Now,
                 Values = Values.Count == 0 ? null : JsonConvert.SerializeObject(Values.Values)
             };
             return audit;

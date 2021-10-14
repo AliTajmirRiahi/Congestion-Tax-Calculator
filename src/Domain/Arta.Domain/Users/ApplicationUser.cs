@@ -8,5 +8,6 @@ namespace Domain.Models.Users
         {
 
         }
+        public User User { get; set; }
     }
 }
