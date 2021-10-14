@@ -5,7 +5,6 @@ using Anshan.Framework.Application.Command;
 using Anshan.Framework.Core;
 using Anshan.Framework.Core.Events;
 using Microsoft.Extensions.DependencyInjection;
-using Sepehr.Facade.UserFacade;
 
 namespace Anshan.Framework.DI
 {
@@ -48,11 +47,11 @@ namespace Anshan.Framework.DI
         
         public static void AddFacades<T>(this IServiceCollection services)
         {
-            services.Scan(scan => scan
-                .FromAssemblyOf<T>()
-                .AddClasses(classes => classes.AssignableTo<IFacade>())
-                .AsMatchingInterface()
-                .WithScopedLifetime());
+            //services.Scan(scan => scan
+            //    .FromAssemblyOf<T>()
+            //    .AddClasses(classes => classes.AssignableTo<IFacade>())
+            //    .AsMatchingInterface()
+            //    .WithScopedLifetime());
         }
 
         public static void AddRepositories<T>(this IServiceCollection services)

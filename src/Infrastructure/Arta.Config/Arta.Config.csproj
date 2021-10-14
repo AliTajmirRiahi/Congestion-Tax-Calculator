@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+    <PackageReference Include="Scrutor" Version="3.3.0" />
+  </ItemGroup>
+
+	
+	
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Core\Anshan.Framework.Core.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.DI\Anshan.Framework.DI.csproj" />
+    <ProjectReference Include="..\..\Application\Arta.Application\Arta.Application.csproj" />
+    <ProjectReference Include="..\Arta.Persistence.EF\Arta.Persistence.EF.csproj" />
+    <ProjectReference Include="..\Arta.Query\Arta.Query.csproj" />
+  </ItemGroup>
+
+</Project>

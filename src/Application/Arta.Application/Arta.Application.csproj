@@ -4,4 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Application\Anshan.Framework.Application.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Permission\Anshan.Framework.Permission.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Security\Anshan.Framework.Security.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Framework.Exceptions\Framework.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Framework.FileUtility\Framework.FileUtility.csproj" />
+    <ProjectReference Include="..\..\Domain\Arta.Domain\Arta.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Arta.Query\Arta.Query.csproj" />
+    <ProjectReference Include="..\Arta.Application.Contracts\Arta.Application.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

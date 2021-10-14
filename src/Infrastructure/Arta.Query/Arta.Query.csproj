@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Application\Anshan.Framework.Application.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Anshan.Framework.DateTime\Anshan.Framework.DateTime.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Framework.CommonUtility\Framework.CommonUtility.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Framework.Pagination\Framework.Pagination.csproj" />
+    <ProjectReference Include="..\Arta.Persistence.EF\Arta.Persistence.EF.csproj" />
+    <ProjectReference Include="..\Arta.Query.Model\Arta.Query.Model.csproj" />
+  </ItemGroup>
+
+</Project>
