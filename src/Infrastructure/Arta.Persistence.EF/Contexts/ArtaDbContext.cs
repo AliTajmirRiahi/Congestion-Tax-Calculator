@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Arta.Persistence.EF.Configurations;
 using Domain.Models.Users;
+using Arta.Domain.Vehicles;
 
 namespace Arta.Persistence.EF.Contexts
 {
@@ -15,6 +16,9 @@ namespace Arta.Persistence.EF.Contexts
         public ArtaDbContext(DbContextOptions<ArtaDbContext> options) : base(options)
         {
         }
+
+        public DbSet<Vehicle> Vehicles { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

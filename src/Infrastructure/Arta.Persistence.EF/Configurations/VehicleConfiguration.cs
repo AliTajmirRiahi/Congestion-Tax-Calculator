@@ -1,4 +1,4 @@
-﻿using Arta.Domain.Consumer;
+﻿using Arta.Domain.Vehicles;
 using Domain.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -8,13 +8,11 @@ using System.Text;
 
 namespace Arta.Persistence.EF.Configurations
 {
-    public class ConsumerConfiguration : IEntityTypeConfiguration<Consumer>
+    public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
     {
-        public void Configure(EntityTypeBuilder<Consumer> builder)
+        public void Configure(EntityTypeBuilder<Vehicle> builder)
         {
             builder.HasKey(p => p.Id);
-
-            builder.HasMany(p => p.Users).WithOne(p => p.Consumer).HasForeignKey(p => p.ConsumerId);
         }
     }
 }

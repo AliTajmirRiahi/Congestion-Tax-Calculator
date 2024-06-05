@@ -24,12 +24,12 @@ namespace Arta.Api.Controllers
             _dbContext = dbContext;
             _localizer = localizer;
         }
-        [HttpPost("authenticate")]
-        public async Task<IActionResult> Authenticate()
-        {
-            var result = await _dbContext.Users.ToListAsync();
-            var tt = _localizer["Test"];
-            return Ok(tt);
-        }
+        //[HttpPost("authenticate")]
+        //public async Task<IActionResult> Authenticate()
+        //{
+        //    var result = await _dbContext.Users.ToListAsync();
+        //    var tt = _localizer["Test"];
+        //    return Ok(tt);
+        //}
     }
 }

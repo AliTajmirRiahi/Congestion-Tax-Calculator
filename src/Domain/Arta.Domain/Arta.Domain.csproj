@@ -11,6 +11,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Application\Anshan.Framework.Application.csproj" />
     <ProjectReference Include="..\..\..\Framework\Anshan.Framework.Domain\Anshan.Framework.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Framework.CommonUtility\Framework.CommonUtility.csproj" />
+    <ProjectReference Include="..\..\..\Framework\Framework.Exceptions\Framework.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

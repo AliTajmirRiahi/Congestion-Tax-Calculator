@@ -20,6 +20,7 @@ using Arta.Api.Middlewares;
 using Arta.Persistence.EF.Contexts;
 using Arta.Api.Config.Localization;
 using Microsoft.Extensions.Options;
+using Arta.Api.Config.ValidatorHandling;
 
 namespace Arta.Api
 {
@@ -36,28 +37,15 @@ namespace Arta.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson();
-            //services.AddCustomControllers();
+            services.AddCustomControllers();
 
-            services.AddCustomLocalization();
+            //services.AddCustomLocalization();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Issuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-                    };
-                });
+
             services.AddMemoryCache();
             services.AddCore(Configuration);
             services.AddEfCore(Configuration);
-            services.AddIdentity();
+            //services.AddIdentity();
             services.AddHttpContextAccessor();
 
             //services.AddRedisCache(Configuration["RedisConnection"]);
